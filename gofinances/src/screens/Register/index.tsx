@@ -18,7 +18,7 @@ import {
 } from './style';
 
 export type FormData = {
-    [name: string]: any;
+    [name: string]: string;
 
 }
 
@@ -30,7 +30,7 @@ const schema = Yup.object().shape({
         .number()
         .typeError("Informe uma valor numérico")
         .positive("O valor não pode ser negativo")
-        .required("O valor é obrigatório")
+        .required()
 })
 
 export default function Register() {
@@ -127,6 +127,7 @@ export default function Register() {
                     <Button
                         title='Enviar'
                         onPress={handleSubmit(handleRegister)}
+                    
                     />
                 </Form>
                 <Modal visible={categoryModalOpen}>

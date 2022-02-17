@@ -15,9 +15,10 @@ import {
     Transactions,
     Title,
     TransactionList,
+    LogoutButton
 } from './styles';
 
-export interface DataListProps  extends TransactionCardProps {
+export interface DataListProps extends TransactionCardProps {
     id: string;
 }
 
@@ -26,35 +27,35 @@ export default function Dashboard() {
         {
             id: "1",
             type: "positive",
-            title:"Desenvolvimento de site",
-            amount:"R$ 12.400,00",
+            title: "Desenvolvimento de site",
+            amount: "R$ 12.400,00",
             category: {
-                name:"Vendas",
-                icon:"dollar-sign"
+                name: "Vendas",
+                icon: "dollar-sign"
             },
-            date:"15/02/2022"
+            date: "15/02/2022"
         },
         {
             id: "2",
             type: "negative",
-            title:"Hamburgueria Pizzy",
-            amount:"R$ 59,00",
+            title: "Hamburgueria Pizzy",
+            amount: "R$ 59,00",
             category: {
-                name:"Alimentação",
-                icon:"coffee"
+                name: "Alimentação",
+                icon: "coffee"
             },
-            date:"10/02/2022"
+            date: "10/02/2022"
         },
         {
             id: "3",
             type: "negative",
-            title:"Aluguel do apartamento",
-            amount:"R$ 1.200,00",
+            title: "Aluguel do apartamento",
+            amount: "R$ 1.200,00",
             category: {
-                name:"Casa",
-                icon:"shopping-bag"
+                name: "Casa",
+                icon: "shopping-bag"
             },
-            date:"5/02/2022"
+            date: "5/02/2022"
         }
     ]
     return (
@@ -68,7 +69,9 @@ export default function Dashboard() {
                             <UserName>João Vitor</UserName>
                         </User>
                     </UserInfo>
-                    <Icon name="power" />
+                    <LogoutButton onPress={() => {}}>
+                        <Icon name="power" />
+                    </LogoutButton>
                 </UserWrapper>
             </Header>
             <HighlightsCards>
