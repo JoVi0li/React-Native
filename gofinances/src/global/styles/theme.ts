@@ -6,7 +6,7 @@ export default {
         secundary_light: "rgba(255, 135, 44, 0.3)",
 
         success: "#12A454",
-        succcess_light: "rbga(18, 164, 84, 0.5)",
+        succcess_light: "rgba(18, 164, 84, 0.5)",
         
         attention: "#E83F5B",
         attention_light: "rgba(232, 63, 91, 0.5)",

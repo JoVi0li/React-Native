@@ -14,7 +14,7 @@ export const Header = styled.View`
     justify-content: flex-end;
     padding-bottom: 19px;
 `;
-export const Title = styled.View`
+export const Title = styled.Text`
     font-family: ${({theme}) => theme.fonts.regular};
     color: ${({ theme }) => theme.colors.shape};
     font-size: ${RFValue(18)}px;

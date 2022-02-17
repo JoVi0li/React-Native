@@ -39,7 +39,7 @@ export const Footer = styled.View`
 
 export const Category = styled.View`
     flex-direction: row;
-    align-items: cemter;
+    align-items: center;
 `;
 
 export const Icon = styled(Feather)`
