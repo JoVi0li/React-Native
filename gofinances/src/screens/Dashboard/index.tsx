@@ -149,12 +149,13 @@ export default function Dashboard() {
         <Container>
 
             {
-                isLoading ? <LoadContainer>
-                    <ActivityIndicator
-                        color={theme.colors.primary}
-                        size={"large"}
-                    />
-                </LoadContainer> :
+                isLoading ?
+                    <LoadContainer>
+                        <ActivityIndicator
+                            color={theme.colors.primary}
+                            size={"large"}
+                        />
+                    </LoadContainer> :
                     <>
                         <Header>
                             <UserWrapper>
