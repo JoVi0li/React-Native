@@ -6,8 +6,10 @@ import { ThemeProvider } from 'styled-components/native';
 import theme from "./src/global/styles/theme";
 import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from "@react-navigation/native"
+import { AuthProvider } from './src/hooks/auth';
 
 import AppRoutes from './src/Routes/app.routes';
+import SignIn from './src/screens/SignIn';
 
 import {
   useFonts,
@@ -31,7 +33,9 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <NavigationContainer>
         <StatusBar barStyle={"light-content"} />
-        <AppRoutes />
+        <AuthProvider>
+          <SignIn />
+        </AuthProvider>
       </NavigationContainer>
     </ThemeProvider>
   );

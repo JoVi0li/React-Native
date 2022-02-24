@@ -6,7 +6,8 @@
     "slug": "gofinances",
     "privacy": "public",
     "platforms": [
-      "android"
+      "android",
+      "web"
     ],
     "orientation": "portrait",
     "splash": {
