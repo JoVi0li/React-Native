@@ -20,11 +20,19 @@ import {
 
 export default function SignIn() {
 
-    const { signInWithGoogle } = useAuth();
+    const { signInWithGoogle, signInWithApple } = useAuth();
 
     async function handleSignInWithGoogle() {
         try {
             await signInWithGoogle();
+        } catch (error) {
+            console.error(error);
+            Alert.alert("Ocorreu um erro durante a tentativa de autenticação. Por favor, tente novamente!");
+        }
+    }
+    async function handleSignInWithApple() {
+        try {
+            await signInWithApple();
         } catch (error) {
             console.error(error);
             Alert.alert("Ocorreu um erro durante a tentativa de autenticação. Por favor, tente novamente!");
@@ -60,6 +68,7 @@ export default function SignIn() {
                     <SignInSocialButton
                         title="Entrar com Apple"
                         svg={AppleSvg}
+                        onPress={handleSignInWithApple}
                     />
                 </FooterWrapper>
 
