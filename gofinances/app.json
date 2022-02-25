@@ -4,6 +4,7 @@
     "icon": "src/assets/icon.png",
     "version": "1.0.0",
     "slug": "gofinances",
+    "schema": "gofinances",
     "privacy": "public",
     "platforms": [
       "android",
