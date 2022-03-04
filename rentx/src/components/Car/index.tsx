@@ -15,30 +15,32 @@ import {
   CarImage,
 } from "./style";
 
-interface CarData{
+ interface CarData {
   brand: string,
   name: string,
   rent: {
     period: string,
     price: number
-  }
+  },
+  thumbnail: string
 }
 
-interface Props {
+ interface Props {
   data: CarData
 }
 
-export function Car({ data } : Props) {
+export function Car({ data }: Props) {
   return (
     <Container>
+
       <Details>
         <Brand >{data.brand}</Brand>
-        <Name>{`R$ ${data.name}`}</Name>
+        <Name>{data.name}</Name>
 
         <About>
           <Rent>
             <Period>{data.rent.period}</Period>
-            <Price>{data.rent.price}</Price>
+            <Price>{`R$ ${data.rent.price}`}</Price>
           </Rent>
 
           <Type>
@@ -47,8 +49,11 @@ export function Car({ data } : Props) {
         </About>
       </Details>
 
-      <CarImage source={{ uri: "https://w7.pngwing.com/pngs/853/38/png-transparent-2017-audi-r8-car-audi-rs5-audi-r8-lms-2016-audi-sedan-car-performance-car.png" }}/>
-        
+      <CarImage
+        source={{ uri: data.thumbnail }}
+        resizeMode="contain"
+      />
+
     </Container>
 
   )

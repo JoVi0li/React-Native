@@ -40,7 +40,6 @@ export const About = styled.View`
   align-items: center;
 
   margin-top: 16px;
-
 `;
 
 export const Rent = styled.View`
