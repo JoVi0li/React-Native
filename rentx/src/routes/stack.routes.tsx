@@ -12,7 +12,7 @@ import { SchedulingComplete } from "../screens/SchedulingComplete";
 
 export function StackRoutes() {
   return (
-    <Navigator>
+    <Navigator headerMode="none">
       <Screen
         name="Home"
         component={HomeScreen}

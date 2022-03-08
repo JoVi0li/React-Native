@@ -18,7 +18,7 @@ export const Content = styled.View`
   padding-bottom: 80px;
 `;
 
-export const Title = styled.View`
+export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.secondary_600};
   font-size: ${RFValue(30)}px;
 
@@ -27,11 +27,11 @@ export const Title = styled.View`
   margin-top: 40px;
 `;
 
-export const Message = styled.View`
+export const Message = styled.Text`
   font-family: ${({ theme }) => theme.fonts.primary_400};
   font-size: ${RFValue(15)}px;
 
-  color: ${({ theme }) => theme.fonts.primary_400};
+  color: ${({ theme }) => theme.colors.shape};
 
   text-align: center;
 

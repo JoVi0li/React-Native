@@ -34,10 +34,14 @@ export function CarDetails({ navigation }) {
     navigation.navigate("Scheduling");
   }
 
+  function handlePop(){
+    navigation.pop();
+  }
+
   return (
     <Container>
       <Header>
-        <BackButton onPress={() => { navigation.pop() }} />
+        <BackButton onPress={handlePop} />
       </Header>
       <CarImages>
         <ImageSlider imagesUrl={["https://www.pngplay.com/wp-content/uploads/13/Porsche-Panamera-PNG-Images-HD.png"]} />
@@ -72,7 +76,7 @@ export function CarDetails({ navigation }) {
         </About>
       </Content>
       <Footer>
-        <Button title="Confirmar" onPress={handleConfirmRental}  />
+        <Button title="Escolher período do aluguel" onPress={handleConfirmRental}  />
       </Footer>
     </Container>
   );

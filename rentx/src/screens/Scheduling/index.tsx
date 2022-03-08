@@ -20,8 +20,17 @@ import {
   Footer,
 } from "./style";
 
-export function Scheduling() {
+export function Scheduling({ navigation }) {
   const theme = useTheme();
+
+  function handleConfirmRental(){
+    navigation.navigate("SchedulingDetails");
+  }
+
+  function handlePop(){
+    navigation.pop();
+  }
+
 
   return (
     <Container>
@@ -31,7 +40,7 @@ export function Scheduling() {
           translucent
           backgroundColor="transparent"
         />
-        <BackButton onPress={() => { }} color={theme.colors.shape} />
+        <BackButton onPress={handlePop} color={theme.colors.shape} />
         <Title>
           Escolha uma {'\n'}
           data de início e {'\n'}
@@ -61,7 +70,7 @@ export function Scheduling() {
       </Content>
 
       <Footer>
-        <Button title="Confirmar" onPress={() => {}}/>
+        <Button title="Confirmar" onPress={handleConfirmRental}/>
       </Footer>
     </Container>
   );

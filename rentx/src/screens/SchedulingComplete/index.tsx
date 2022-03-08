@@ -14,8 +14,13 @@ import {
 } from "./style";
 import { ConfirmButton } from "../../components/ConfirmButton";
 
-export function SchedulingComplete() {
+export function SchedulingComplete({ navigation }) {
   const { width } = useWindowDimensions();
+
+  function handleConfirmRental(){
+    navigation.navigate("Home");
+  }
+
   return (
     <Container>
       <StatusBar
@@ -37,7 +42,7 @@ export function SchedulingComplete() {
       </Content>
 
       <Footer>
-        <ConfirmButton title="OK" />
+        <ConfirmButton title="OK" onPress={handleConfirmRental} />
       </Footer>
     </Container>
   );

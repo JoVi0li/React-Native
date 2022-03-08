@@ -41,13 +41,21 @@ import {
   RentalPriceTotal,
 } from "./style";
 
-export function SchedulingDetails() {
+export function SchedulingDetails({ navigation }) {
   const theme = useTheme();
+
+  function handleConfirmRental(){
+    navigation.navigate("SchedulingComplete");
+  }
+
+  function handlePop(){
+    navigation.pop();
+  }
 
   return (
     <Container>
       <Header>
-        <BackButton onPress={() => { }} />
+        <BackButton onPress={handlePop} />
       </Header>
       <CarImages>
         <ImageSlider imagesUrl={["https://www.pngplay.com/wp-content/uploads/13/Porsche-Panamera-PNG-Images-HD.png"]} />
@@ -110,7 +118,7 @@ export function SchedulingDetails() {
 
       </Content>
       <Footer>
-        <Button title="Confirmar" onPress={() => { }} />
+        <Button title="Confirmar" color={theme.colors.success} onPress={handleConfirmRental} />
       </Footer>
     </Container>
   );
