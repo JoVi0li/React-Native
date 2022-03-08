@@ -10,13 +10,16 @@ import {
   Content,
   Title,
   Message,
+  Footer,
 } from "./style";
+import { ConfirmButton } from "../../components/ConfirmButton";
 
 export function SchedulingComplete() {
   const { width } = useWindowDimensions();
   return (
     <Container>
       <LogoSvg  width={width}/>
+      
       <Content>
         <DoneSvg height={80} width={80}/>
         <Title>Carro alugado!</Title>
@@ -27,6 +30,10 @@ export function SchedulingComplete() {
           pegar o seu automóvel.
         </Message>
       </Content>
+
+      <Footer>
+        <ConfirmButton title="OK" />
+      </Footer>
     </Container>
   );
 }
