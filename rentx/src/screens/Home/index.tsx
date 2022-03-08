@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { FunctionComponent } from 'react';
 import { StatusBar } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -14,34 +15,38 @@ import {
   CarList,
 } from "./style";
 
-export function HomeScreen() {
+export function HomeScreen({ navigation }) {
+
   const carData = [
     {
-   
-        brand: "audi",
-        name: "RS5 Coupé",
-        rent: {
-          period: "Ao dia",
-          price: 120
-        },
-        thumbnail: "https://www.webmotors.com.br/imagens/prod/348415/AUDI_RS5_2.9_V6_TFSI_GASOLINA_SPORTBACK_QUATTRO_STRONIC_3484151711005714.png?s=fill&w=440&h=330&q=80&t=true"
 
-      
+      brand: "audi",
+      name: "RS5 Coupé",
+      rent: {
+        period: "Ao dia",
+        price: 120
+      },
+      thumbnail: "https://www.webmotors.com.br/imagens/prod/348415/AUDI_RS5_2.9_V6_TFSI_GASOLINA_SPORTBACK_QUATTRO_STRONIC_3484151711005714.png?s=fill&w=440&h=330&q=80&t=true"
+
+
     },
     {
-    
-        brand: "porche",
-        name: "Panamera",
-        rent: {
-          period: "Ao dia",
-          price: 150
-        },
-        thumbnail: "https://www.pngplay.com/wp-content/uploads/13/Porsche-Panamera-PNG-Images-HD.png"
 
-      
+      brand: "porche",
+      name: "Panamera",
+      rent: {
+        period: "Ao dia",
+        price: 150
+      },
+      thumbnail: "https://www.pngplay.com/wp-content/uploads/13/Porsche-Panamera-PNG-Images-HD.png"
+
+
     },
-
   ]
+
+  function handleCarDetails() {
+    navigation.navigate('CarDetails');
+  }
   return (
     <Container>
       <StatusBar
@@ -62,7 +67,7 @@ export function HomeScreen() {
       </Header>
       <CarList
         data={carData}
-        renderItem={({ item }) => <Car data={item} />}
+        renderItem={({ item }) => <Car data={item} onPress={handleCarDetails} />}
         keyExtractor={(item) => item.thumbnail}
       />
     </Container>

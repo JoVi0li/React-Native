@@ -29,11 +29,15 @@ import {
   Footer
 } from "./style";
 
-export function CarDetails() {
+export function CarDetails({ navigation }) {
+  function handleConfirmRental(){
+    navigation.navigate("Scheduling");
+  }
+
   return (
     <Container>
       <Header>
-        <BackButton onPress={() => { }} />
+        <BackButton onPress={() => { navigation.pop() }} />
       </Header>
       <CarImages>
         <ImageSlider imagesUrl={["https://www.pngplay.com/wp-content/uploads/13/Porsche-Panamera-PNG-Images-HD.png"]} />
@@ -68,7 +72,7 @@ export function CarDetails() {
         </About>
       </Content>
       <Footer>
-        <Button title="Confirmar" onPress={() => {}}  />
+        <Button title="Confirmar" onPress={handleConfirmRental}  />
       </Footer>
     </Container>
   );
