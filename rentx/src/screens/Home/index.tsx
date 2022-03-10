@@ -76,11 +76,11 @@ export function HomeScreen({ navigation }) {
           </TotalCars>
         </HeaderContent>
       </Header>
-      <CarList
+      {/* <CarList
               
         renderItem={({ item }) => <Car data={item} onPress={handleCarDetails} />}
         keyExtractor={(item) => String(item.)}
-      />
+      /> */}
     </Container>
   )
 }
