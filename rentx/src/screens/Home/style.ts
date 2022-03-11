@@ -35,12 +35,10 @@ export const TotalCars = styled.Text`
     color: ${({ theme }) => theme.colors.text};
 `;
 
-export const CarList = styled(FlatList as new () => FlatList<CarDTO[]>).attrs({
+export const CarList = styled(FlatList).attrs({
   contentContainerStyle: {
     padding: 24,
     paddingRight: 43,
   },
   showsVerticalScrollIndicator: false,
-})`
-
-`;
+})`` as React.ComponentType as new <CarDTO>() => FlatList<CarDTO>;

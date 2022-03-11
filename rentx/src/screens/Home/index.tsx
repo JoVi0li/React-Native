@@ -42,20 +42,23 @@ export function HomeScreen({ navigation }) {
   }
 
   useEffect(() => {
+    console.log("entrando no useEffect");
     const fecthCars = async () => {
+      console.log("entrando no fetchCars");
       await api.get('/cars')
         .then((value) => {
           setCars(value.data);
+          console.log(cars);
         })
         .catch((error) => {
-          console.error(error);
+          console.error("Olha a excessão aí || " + error + " ||");
 
         }).finally(() => {
           setLoading(false);
         });
 
-      fecthCars();
     };
+    fecthCars();
   }, []);
 
   return (
@@ -76,11 +79,11 @@ export function HomeScreen({ navigation }) {
           </TotalCars>
         </HeaderContent>
       </Header>
-      {/* <CarList
-              
+      <CarList
+        data={cars}
         renderItem={({ item }) => <Car data={item} onPress={handleCarDetails} />}
-        keyExtractor={(item) => String(item.)}
-      /> */}
+        keyExtractor={item => item.id}
+      />
     </Container>
   )
 }
