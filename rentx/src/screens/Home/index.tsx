@@ -5,6 +5,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import Logo from '../../assets/logo.svg';
 
 import { Car } from '../../components/Car';
+import { Loading } from '../../components/Loading';
 
 import { api } from '../../services/api';
 
@@ -22,37 +23,18 @@ export function HomeScreen({ navigation }) {
   const [cars, setCars] = useState<CarDTO[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const carData = [
-    {
-
-      brand: "audi",
-      name: "RS5 Coupé",
-      rent: {
-        period: "Ao dia",
-        price: 120
-      },
-      thumbnail: "https://www.webmotors.com.br/imagens/prod/348415/AUDI_RS5_2.9_V6_TFSI_GASOLINA_SPORTBACK_QUATTRO_STRONIC_3484151711005714.png?s=fill&w=440&h=330&q=80&t=true"
-
-
-    }
-  ]
-
-  function handleCarDetails() {
-    navigation.navigate('CarDetails');
+  function handleCarDetails(car: CarDTO) {
+    navigation.navigate('CarDetails', { car });
   }
 
   useEffect(() => {
-    console.log("entrando no useEffect");
     const fecthCars = async () => {
-      console.log("entrando no fetchCars");
       await api.get('/cars')
         .then((value) => {
           setCars(value.data);
-          console.log(cars);
         })
         .catch((error) => {
           console.error("Olha a excessão aí || " + error + " ||");
-
         }).finally(() => {
           setLoading(false);
         });
@@ -79,11 +61,16 @@ export function HomeScreen({ navigation }) {
           </TotalCars>
         </HeaderContent>
       </Header>
-      <CarList
-        data={cars}
-        renderItem={({ item }) => <Car data={item} onPress={handleCarDetails} />}
-        keyExtractor={item => item.id}
-      />
+      {
+        loading ?
+          <Loading /> :
+          <CarList
+            data={cars}
+            renderItem={({ item }) => <Car data={item} onPress={() => handleCarDetails(item)} />}
+            keyExtractor={item => item.id}
+          />
+      }
+
     </Container>
   )
 }

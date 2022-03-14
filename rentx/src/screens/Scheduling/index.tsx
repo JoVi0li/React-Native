@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { StatusBar } from "react-native";
 import { useTheme } from "styled-components";
 
 import { BackButton } from "../../components/BackButton";
 import { Button } from "../../components/Button";
-import { Calendar } from "../../components/Calendar";
+import { Calendar, DayProps } from "../../components/Calendar";
 
 import ArrowSvg from "../../assets/arrow.svg";
 
@@ -19,8 +19,11 @@ import {
   Content,
   Footer,
 } from "./style";
+import { generateInterval } from "../../components/Calendar/generateInterval";
 
 export function Scheduling({ navigation }) {
+  const [lastSelectedDate, setLastSelectedDate] = useState<DayProps>({} as DayProps);
+  const [markedDates, setMarkedDates] = useState({});
   const theme = useTheme();
 
   function handleConfirmRental(){
@@ -29,6 +32,21 @@ export function Scheduling({ navigation }) {
 
   function handlePop(){
     navigation.pop();
+  }
+
+  function handleChangeDate(date: DayProps){
+    let start = !lastSelectedDate.timestamp ? date : lastSelectedDate;
+    let end = date;
+
+    if(start.timestamp > end.timestamp){
+      start = end;
+      end = start;
+    }
+
+    setLastSelectedDate(end);
+
+    const interval = generateInterval(start, end);
+    setMarkedDates(interval);
   }
 
 
@@ -66,7 +84,10 @@ export function Scheduling({ navigation }) {
       </Header>
 
       <Content>
-        <Calendar />
+        <Calendar 
+          markedDates={markedDates}
+          onDayPress={handleChangeDate}
+        />
       </Content>
 
       <Footer>
