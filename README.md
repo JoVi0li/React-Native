@@ -1,7 +1,7 @@
 
 # React Native
 
-Repositório contendo contém diversos projetos desenvolvidos utilizando React Native.
+Repositório contendo diversos projetos desenvolvidos utilizando React Native.
 
 O desenvolvimento de tais projetos tem o objetivo de aprendizagem.
 
