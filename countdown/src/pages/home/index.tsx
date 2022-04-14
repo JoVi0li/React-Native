@@ -1,12 +1,20 @@
 import React from "react";
-import { Text, View } from "react-native";
 
+import PatternHillsImage from "../../assets/pattern-hills.svg";
+import BackgroundStarsImage from "../../assets/bg-stars.svg";
+
+import {
+  HomeWrapper,
+  PatternHills,
+  BackgroundStars
+} from "./styles";
 
 export const Home = () => {
   return (
-    <View>
-      <Text>Teste</Text>
-    </View>
+    <HomeWrapper>
+      <PatternHills source={PatternHillsImage}/>
+      <BackgroundStars source={BackgroundStarsImage}/>
+    </HomeWrapper>
   )
 }
 
