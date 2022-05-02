@@ -1,4 +1,4 @@
-class Movie{
+export class Movie{
   private _id: string;
   private _title: string;
   private _rate: string;

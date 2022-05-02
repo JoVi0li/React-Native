@@ -1,4 +1,4 @@
-abstract class MovieError extends Error {
+export abstract class MovieError extends Error {
   private _message: string;
   private _error: string;
   private _stack?: string;
@@ -29,7 +29,7 @@ abstract class MovieError extends Error {
   }
 }
 
-class NoConectionError extends MovieError {
+export class NoConectionError extends MovieError {
   constructor (error: string){
     super(
       error,
@@ -38,7 +38,7 @@ class NoConectionError extends MovieError {
   }
 }
 
-class Unauthorized extends MovieError {
+export class Unauthorized extends MovieError {
   constructor(error: string) {
     super(
       error,
@@ -47,7 +47,7 @@ class Unauthorized extends MovieError {
   }
 }
 
-class Unauthenticated extends MovieError {
+export class Unauthenticated extends MovieError {
   constructor(error: string) {
     super(
       error,
@@ -56,7 +56,7 @@ class Unauthenticated extends MovieError {
   }
 }
 
-class NotFound extends MovieError {
+export class NotFound extends MovieError {
   constructor(error: string){
     super(
       error,

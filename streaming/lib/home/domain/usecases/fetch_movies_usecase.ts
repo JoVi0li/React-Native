@@ -1,11 +1,13 @@
 import { Either } from "fp-ts/lib/Either";
+import { Movie } from "../entities/movie";
+import { MovieError } from "../errors/movie_error";
 import { IMovieRepository } from "../repositories/movie_repository";
 
 interface IFetchMoviesUsecase {
   call(): Promise<Either<MovieError, Movie>>;
 }
 
-class FetchMoviesUsecase implements IFetchMoviesUsecase {
+export class FetchMoviesUsecase implements IFetchMoviesUsecase {
   private _repository: IMovieRepository;
 
   constructor(repository: IMovieRepository){
